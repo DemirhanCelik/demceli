@@ -33,7 +33,6 @@ import {Time} from '../components/time';
 import {useUpdatingLanyard} from '../hooks/lanyard';
 import matrix from '../images/matrix.gif';
 import me from '../images/me.jpg';
-import {getMapURL} from '../server/apple-maps';
 import {env} from '../server/env';
 import {getLanyard} from '../server/lanyard';
 import {age, discordId} from '../utils/constants';
@@ -49,7 +48,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 	const lanyard = await getLanyard(discordId);
 	const location = lanyard.kv.location ?? env.DEFAULT_LOCATION;
 
-	const map = getMapURL(location);
+	const map = "http://maps.apple.com/?address=32.04015,-88.7281&t=m"
 
 	return {
 		revalidate: 10,
